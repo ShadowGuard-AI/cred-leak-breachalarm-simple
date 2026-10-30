@@ -1,2 +1,2 @@
 aiohttp>=3.9.3
-tqdm>=4.66.2
+# tqdm stood here before; nothing in main.py imports it.

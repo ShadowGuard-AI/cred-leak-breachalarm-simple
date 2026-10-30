@@ -3,9 +3,9 @@ import asyncio
 import aiohttp
 import logging
 import os
+import re
 import sys
 from typing import List, Optional
-from tqdm import tqdm
 
 # Configure logging
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
@@ -42,7 +42,10 @@ class BreachAlarm:
         try:
             async with aiohttp.ClientSession() as session:
                 url = f"https://haveibeenpwned.com/api/v3/breachedaccount/{email}"
-                headers = {'hibp-api-key': 'anonymous'}  # Replace with your HIBP API key if you have one
+                # The v3 API rejects keyless calls; the key comes from
+                # the environment so it is never written into the repo
+                # or the shell history next to the command.
+                headers = {'hibp-api-key': os.environ.get('HIBP_API_KEY', '')}
                 async with session.get(url, headers=headers) as response:
                     if response.status == 200:
                         data = await response.json()
@@ -97,7 +100,14 @@ class BreachAlarm:
         """
         if self.email:
             logging.info(f"Checking email: {self.email}")
-            await self.check_hibp(self.email)
+            breaches = await self.check_hibp(self.email)
+            # check_hibp only logged its result, so the person who ran
+            # the tool saw nothing on stdout unless they read the log
+            # lines. The answer is the point of the run; print it.
+            if breaches:
+                print(f"{self.email} appears in these breaches: {', '.join(breaches)}")
+            else:
+                print(f"No breach record returned for {self.email} (not found, or the check failed; see the log lines above).")
         elif self.org_name:
             logging.info(f"Searching for organization name: {self.org_name}")
             await self.search_code_repositories(self.org_name)
@@ -165,7 +175,6 @@ def is_valid_email(email: str) -> bool:
     Returns:
         bool: True if the email address is valid, False otherwise.
     """
-    import re
     pattern = r"^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$"
     return bool(re.match(pattern, email))
 
