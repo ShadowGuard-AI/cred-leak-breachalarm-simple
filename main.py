@@ -41,6 +41,9 @@ class BreachAlarm:
         """
         try:
             async with aiohttp.ClientSession() as session:
+                # I put the address into the URL as written. The format check
+                # in main keeps out spaces and slashes, so what reaches this
+                # line is already a plain address shape and nothing more.
                 url = f"https://haveibeenpwned.com/api/v3/breachedaccount/{email}"
                 # The v3 API rejects keyless calls; the key comes from
                 # the environment so it is never written into the repo
@@ -81,6 +84,9 @@ class BreachAlarm:
         """
         # Placeholder for code repository searching functionality (e.g., using GitHub API)
         logging.info(f"Searching code repositories for: {search_term}")
+        # I say placeholder in the print itself, on purpose. A search
+        # that quietly did nothing would read as an empty result, and
+        # an empty result here could be taken as no leaks found.
         print(f"Searching code repositories for: {search_term} (This feature is a placeholder and does not perform actual searching.)")
 
     async def search_paste_sites(self, search_term: str) -> None:
@@ -108,6 +114,9 @@ class BreachAlarm:
                 print(f"{self.email} appears in these breaches: {', '.join(breaches)}")
             else:
                 print(f"No breach record returned for {self.email} (not found, or the check failed; see the log lines above).")
+        # I run one mode only. The command line group already forces
+        # a single choice, and this chain matches it: an object built
+        # with two fields set by hand would still only run the first.
         elif self.org_name:
             logging.info(f"Searching for organization name: {self.org_name}")
             await self.search_code_repositories(self.org_name)
