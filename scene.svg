@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 360" role="img" aria-label="Restoration barge with buoys, falling shell and seeded bed">
+<rect width="1200" height="360" fill="#a8d8de"/>
+<rect y="130" width="1200" height="150" fill="#18345c"/>
+<g fill="#e86e96"><g><ellipse cx="180" cy="150" rx="20" ry="14"><animate attributeName="cy" values="150;140;150" dur="3s" repeatCount="indefinite"/></ellipse></g>
+<g><ellipse cx="560" cy="150" rx="20" ry="14"><animate attributeName="cy" values="140;150;140" dur="3s" repeatCount="indefinite"/></ellipse></g>
+<g><ellipse cx="1020" cy="150" rx="20" ry="14"><animate attributeName="cy" values="150;140;150" dur="3.6s" repeatCount="indefinite"/></ellipse></g></g>
+<g fill="#cec6ae" stroke="#18345c"><g><polygon points="640,170 660,196 628,196"><animateTransform attributeName="transform" type="translate" values="0 0;0 52" dur="2.8s" repeatCount="indefinite"/><animate attributeName="opacity" values="1;0" dur="2.8s" repeatCount="indefinite"/></polygon></g>
+<g><polygon points="700,170 720,196 688,196"><animateTransform attributeName="transform" type="translate" values="0 0;0 52" dur="2.8s" begin="0.9s" repeatCount="indefinite"/><animate attributeName="opacity" values="1;0" dur="2.8s" begin="0.9s" repeatCount="indefinite"/></polygon></g></g>
+<rect y="300" width="1200" height="60" fill="#8a7f63"/>
+<g fill="#d8d0b4" stroke="#18345c"><polygon points="200,318 232,318 216,336"/><polygon points="420,322 452,322 436,340"/><polygon points="760,318 792,318 776,336"/><polygon points="980,322 1012,322 996,340"/></g>
+<rect y="296" width="1200" height="8" fill="#c9bfa2" opacity="0.55"><animate attributeName="x" values="0;24;0" dur="9s" repeatCount="indefinite"/></rect>
+</svg>

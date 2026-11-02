@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en-GB"><head><meta charset="utf-8"><title>cred-leak-breachalarm-simple</title>
+<style>@font-face{font-family:Display;src:url(fonts/BigShouldersInlineDisplay.ttf)} body{font-family:Georgia,serif;margin:2rem} h1,h2{font-family:Display,sans-serif} img{max-width:100%}</style></head>
+<body><img src="intro-banner.png" alt="Introduction banner">
+<h1>cred-leak-BreachAlarm-Simple</h1><img src="banner.png" alt="Wordmark banner"><img src="scene.svg" alt="Animated scene">
+<img src="logo.png" alt="Logo"><p>Theme: Oyster Reef Restoration Barge.</p><button type='button'>CHECK THIS ADDRESS</button><button type='button'>SEARCH AN ORGANISATION NAME</button><button type='button'>SEARCH A TECHNOLOGY NAME</button><section><h2>ONE ADDRESS CHECKED</h2><p>The tool checks one email address against the Have I Been Pwned service, version 3, with a paid key supplied through the environment variable named in the README. Breach names only are returned.</p></section><section><h2>TAKING THE TOOL ABOARD</h2><p>Install and usage lines are given exactly as the README gives them. Exactly one of the three modes must be chosen on each run.</p></section><section><h2>THE THREE MODES</h2><p>Email mode checks an address. Organisation mode and technology mode print a placeholder notice and search nothing, stated here in the main text.</p></section><section><h2>WHAT COMES BACK</h2><p>Breach names print in a list. A not found answer prints a line saying no breach record was returned, and the same line also covers a failed check, including rate limiting and other service errors.</p></section><h2>Facts from the code and the README</h2><ul><li>The tool checks one email address against the Have I Been Pwned service.</li><li>It uses version 3 of that service interface.</li><li>It needs a paid key for that service, supplied through the environment variable named HIBP_API_KEY in the README.</li><li>The key itself is never stated here. No key value and no sample credential of any kind appears in these themed surfaces.</li><li>The check returns breach names only. It does not return dates, descriptions, or account details.</li><li>The clone line in the README is correct and is shown without correction.</li><li>The usage line shows a choice among three modes, and exactly one mode must be chosen on each run.</li><li>The first mode takes an email address. The second mode takes an organisation name. The third mode takes a technology name.</li><li>The second and third modes print a placeholder notice and search nothing. This is stated in the main text, not in a footnote.</li><li>The help flag shows a help message and exits.</li><li>The email flag takes the address to check and is one of the three required choices.</li><li>The organisation flag takes a name to search for, subject to the placeholder limit stated above.</li><li>The technology flag takes a technology to search for, subject to the same limit.</li><li>An address with an invalid format ends the run with exit 1, stated as behaviour only, as a format check and nothing more.</li><li>An empty organisation name ends the run with exit 1.</li><li>An empty technology name ends the run with exit 1.</li><li>A successful answer with breach names prints those names in a list.</li><li>A not found answer prints a line saying that no breach record was returned.</li><li>The same printed line also covers a failed check, because the code returns the same empty result for not found, for rate limiting, and for other service errors.</li><li>A rate limit answer is logged as a warning to wait and try again.</li><li>Other error answers are logged with their status code number, stated as a number only.</li><li>No live run was completed in the recorded wave. The stated reasons were a missing package in that environment and the need for a paid key and network access.</li><li>The README says to see the licence file, and the repository licence file is the MIT License.</li></ul>
+<pre>![Banner](banner.png)
+
+# cred-leak-BreachAlarm-Simple
+A simple command-line tool that checks a single email address against the Have I Been Pwned API to quickly determine if it has been involved in any known data breaches.
+
+## Install
+`git clone https://github.com/ShadowGuard-AI/cred-leak-breachalarm-simple`
+
+## Usage
+`python3 main.py (-e EMAIL | -o ORG | -t TECH)`
+
+The email check calls the Have I Been Pwned v3 API, which needs a paid API key. Set it in the HIBP_API_KEY environment variable before running with -e. The -o and -t modes print a placeholder notice and do not search anything.
+
+## Parameters
+- `-h`: Show help message and exit
+- `-e`, `--email`: Email address to check against Have I Been Pwned. Exactly one of `-e`, `-o`, and `-t` is required.
+- `-o`, `--org`: Organization name to search for.
+- `-t`, `--tech`: Technology to search for.
+
+## Verified behavior
+- The parameter list above is taken from the argument parser in `main.py`, and `main.py` passes `py_compile`.
+- A live run was not completed in this wave: the `aiohttp` package is not installed here and installs are not permitted in this wave, and the email check would also need a paid HIBP API key and network access to that API. Install `aiohttp` from `requirements.txt` and set HIBP_API_KEY before running with `-e`.
+
+## License
+See LICENSE.
+</pre>
+</body></html>
