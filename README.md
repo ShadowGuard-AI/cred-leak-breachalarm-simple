@@ -1,16 +1,16 @@
-![Introduction banner](intro-banner.png)
+![A keeper's hand on a brass bell rope close up, the bell above and a shuttered window beside it, plain flags above the roof and a soft harbour behind, with no lettering anywhere](intro-banner.png)
 
 # cred-leak-BreachAlarm-Simple
 
 Theme: Oyster Reef Restoration Barge. Display face: BigShouldersInlineDisplay. Text face: Bitter.
 
-![Wordmark banner](banner.png)
+![A harbourside signal station, its keeper at the one open window with a telescope, two neighbouring windows shuttered, plain red and yellow flags at the mast and a brass bell on the wall, boats soft and distant, with no lettering anywhere](banner.png)
 
 ![Animated scene](scene.svg)
 
 ![Separator](sep-heavy.svg)
 
-![Banner](banner.png)
+![A harbourside signal station, its keeper at the one open window with a telescope, two neighbouring windows shuttered, plain red and yellow flags at the mast and a brass bell on the wall, boats soft and distant, with no lettering anywhere](banner.png)
 
 # cred-leak-BreachAlarm-Simple
 A simple command-line tool that checks a single email address against the Have I Been Pwned API to quickly determine if it has been involved in any known data breaches.
